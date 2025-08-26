@@ -1,7 +1,7 @@
 interface DialogProps {
   open: boolean
   onClose: () => void
-  onExit?: () => void
+  onExit: () => void
 }
 
 export function Dialog({ open, onClose, onExit }: DialogProps) {
@@ -14,7 +14,7 @@ export function Dialog({ open, onClose, onExit }: DialogProps) {
           <button
             className="rounded-md bg-gray-200 px-4 py-2 hover:bg-gray-300 dark:bg-neutral-800 dark:hover:bg-neutral-700"
             onClick={() => {
-              onExit?.()
+              onExit()
             }}
           >
             닫기
