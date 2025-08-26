@@ -1,5 +1,7 @@
 'use client'
 import { useGetTicker } from '@/entities'
+import { Dialog } from '@/features/custom-ui'
+import { overlay } from '@ci-repo/corelib/utils'
 import { Button } from '@ci-repo/coreui'
 
 import { useEffect, useState } from 'react'
@@ -60,8 +62,17 @@ export function TestView() {
         <Button
           variant={'secondary'}
           size={'lg'}
+          onClick={() => {
+            overlay.open(({ isOpen, close, unmount }) => (
+              <Dialog
+                open={isOpen}
+                onClose={close}
+                onExit={unmount}
+              />
+            ))
+          }}
         >
-          버튼C
+          Open
         </Button>
       </div>
       <div>
