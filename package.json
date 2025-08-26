@@ -3,13 +3,20 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev",
     "lint": "turbo run lint",
+    "dev": "turbo run dev",
+    "dev:coreapp": "turbo run dev --filter=@ci-app/core-app",
+    "run:storybook": "turbo run storybook --filter=@ci-repo/coreui",
+    "check-types": "turbo run check-types",
+    "clean": "turbo run clean --continue && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types"
+    "list-packages": "syncpack list",
+    "list-mismatches": "syncpack list-mismatches",
+    "fix-mismatches": "syncpack fix-mismatches && pnpm install"
   },
   "devDependencies": {
     "prettier": "^3.6.2",
+    "syncpack": "^13.0.4",
     "turbo": "^2.5.6",
     "typescript": "5.9.2"
   },
