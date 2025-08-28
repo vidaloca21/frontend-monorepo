@@ -18,6 +18,7 @@ export default defineConfig({
         hooks: resolve(__dirname, 'src/hooks/index.ts'),
         http: resolve(__dirname, 'src/http/index.ts'),
         utils: resolve(__dirname, 'src/utils/index.ts'),
+        store: resolve(__dirname, 'src/store/index.ts'),
       },
       formats: ['cjs', 'es'],
       fileName: (format, entryName) => (format === 'es' ? `${entryName}.js` : `${entryName}.cjs`),

@@ -10,7 +10,8 @@
     ".": "./src/index.ts",
     "./http": "./src/http/index.ts",
     "./hooks": "./src/hooks/index.ts",
-    "./utils": "./src/utils/index.ts"
+    "./utils": "./src/utils/index.ts",
+    "./store": "./src/store/index.ts"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -24,6 +25,8 @@
   },
   "dependencies": {
     "axios": "^1.11.0",
+    "crypto-js": "^4.2.0",
+    "immer": "^10.1.1",
     "overlay-kit": "^1.8.4",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
@@ -33,6 +36,7 @@
   "devDependencies": {
     "@ci-repo/eslint-config": "workspace:*",
     "@ci-repo/typescript-config": "workspace:*",
+    "@types/crypto-js": "^4.2.2",
     "@types/node": "^24.3.0",
     "@types/react": "^19.1.11",
     "@types/react-dom": "^19.1.7",
@@ -46,7 +50,7 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router": "^7.0.2",
-    "zustand": "^5.0.2"
+    "zustand": "^5.0.8"
   },
   "publishConfig": {
     "exports": {
@@ -69,6 +73,11 @@
         "import": "./dist/utils.js",
         "require": "./dist/utils.cjs",
         "types": "./dist/utils.d.ts"
+      },
+      "./store": {
+        "import": "./dist/store.js",
+        "require": "./dist/store.cjs",
+        "types": "./dist/store.d.ts"
       }
     },
     "registry": "https://nexus.ci.com/repository/npm-private/"

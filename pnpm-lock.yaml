@@ -164,6 +164,12 @@ importers:
       axios:
         specifier: ^1.11.0
         version: 1.11.0
+      crypto-js:
+        specifier: ^4.2.0
+        version: 4.2.0
+      immer:
+        specifier: ^10.1.1
+        version: 10.1.1
       overlay-kit:
         specifier: ^1.8.4
         version: 1.8.4(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -178,7 +184,7 @@ importers:
         version: 7.8.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       zustand:
         specifier: ^5.0.8
-        version: 5.0.8(@types/react@19.1.11)(react@19.1.1)
+        version: 5.0.8(@types/react@19.1.11)(immer@10.1.1)(react@19.1.1)
     devDependencies:
       '@ci-repo/eslint-config':
         specifier: workspace:*
@@ -186,6 +192,9 @@ importers:
       '@ci-repo/typescript-config':
         specifier: workspace:*
         version: link:../config/typescript-config
+      '@types/crypto-js':
+        specifier: ^4.2.2
+        version: 4.2.2
       '@types/node':
         specifier: ^24.3.0
         version: 24.3.0
@@ -1388,6 +1397,9 @@ packages:
   '@types/chai@5.2.2':
     resolution: {integrity: sha512-8kB30R7Hwqf40JPiKhVzodJs2Qc1ZJ5zuT3uzw5Hq/dhNCl3G3l83jfpdI1e20BP348+fV7VIL/+FxaXkqBmWg==}
 
+  '@types/crypto-js@4.2.2':
+    resolution: {integrity: sha512-sDOLlVbHhXpAUAL0YHDUUwDZf3iN4Bwi4W6a0W0b+QcAezUbRtH4FVb+9J4h+XFPW7l/gQ9F8qC7P+Ec4k8QVQ==}
+
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
 
@@ -1983,6 +1995,9 @@ packages:
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
     engines: {node: '>= 8'}
+
+  crypto-js@4.2.0:
+    resolution: {integrity: sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==}
 
   css-declaration-sorter@7.2.0:
     resolution: {integrity: sha512-h70rUM+3PNFuaBDTLe8wF/cdWu+dOZmb7pJt8Z2sedYbAcQVQV/tEchueg3GWxwqS0cxtbxmaHEdkNACqcvsow==}
@@ -2620,6 +2635,9 @@ packages:
   ignore@7.0.5:
     resolution: {integrity: sha512-Hs59xBNfUIunMFgWAbGX5cq6893IbWg4KnrjbYwX3tx0ztorVgTDA6B2sxf8ejHJ4wz8BqGUMYlnzNBer5NvGg==}
     engines: {node: '>= 4'}
+
+  immer@10.1.1:
+    resolution: {integrity: sha512-s2MPrmjovJcoMaHtx6K11Ra7oD05NT97w1IC5zpMkT6Atjr7H8LjaDd81iIxUYpMKSRRNMJE703M1Fhr/TctHw==}
 
   import-fresh@3.3.1:
     resolution: {integrity: sha512-TR3KfrTZTYLPB6jUjfx6MF9WcWrHL9su5TObK4ZkYgBdWKPOFoSoQIdEuTuR82pmtxH2spWG9h6etwfr1pLBqQ==}
@@ -5220,6 +5238,8 @@ snapshots:
     dependencies:
       '@types/deep-eql': 4.0.2
 
+  '@types/crypto-js@4.2.2': {}
+
   '@types/debug@4.1.12':
     dependencies:
       '@types/ms': 2.1.0
@@ -5947,6 +5967,8 @@ snapshots:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
+
+  crypto-js@4.2.0: {}
 
   css-declaration-sorter@7.2.0(postcss@8.5.6):
     dependencies:
@@ -6717,6 +6739,8 @@ snapshots:
   ignore@5.3.2: {}
 
   ignore@7.0.5: {}
+
+  immer@10.1.1: {}
 
   import-fresh@3.3.1:
     dependencies:
@@ -8616,9 +8640,10 @@ snapshots:
 
   yocto-queue@1.2.1: {}
 
-  zustand@5.0.8(@types/react@19.1.11)(react@19.1.1):
+  zustand@5.0.8(@types/react@19.1.11)(immer@10.1.1)(react@19.1.1):
     optionalDependencies:
       '@types/react': 19.1.11
+      immer: 10.1.1
       react: 19.1.1
 
   zwitch@2.0.4: {}
