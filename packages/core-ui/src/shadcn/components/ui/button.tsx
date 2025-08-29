@@ -32,7 +32,7 @@ const buttonVariants = cva(
   },
 )
 
-export function ButtonUI({
+export function Button({
   className,
   variant,
   size,

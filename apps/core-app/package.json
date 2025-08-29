@@ -10,8 +10,8 @@
     "start": "next start"
   },
   "dependencies": {
-    "@ci-repo/corelib": "workspace:*",
-    "@ci-repo/coreui": "workspace:*",
+    "@ci-repo/core-lib": "workspace:*",
+    "@ci-repo/core-ui": "workspace:*",
     "@tanstack/react-query": "^5.85.5",
     "@tanstack/react-query-devtools": "^5.85.5",
     "next": "15.5.0",

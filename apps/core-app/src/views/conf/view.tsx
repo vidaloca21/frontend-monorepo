@@ -1,0 +1,162 @@
+export function ConfView() {
+  return (
+    <div className="w-full p-12">
+      <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">packages/config</h2>
+      <p className="text-muted-foreground text-xl">
+        @ci-repo/eslint-config @ci-repo/prettier-config @ci-repo/typescript-config
+      </p>
+      <div className="pt-6">
+        <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">1. 목적</h4>
+        <div className="mt-3 text-lg font-semibold">개요</div>
+        <p>eslint, prettier, typescript 전역 공유 설정 경로입니다.</p>
+        <p>postcss-config 등의 설정이 필요한 경우 추가 작성하는 경로입니다.</p>
+        <p>
+          워크스페이스 전반에서 <span className="font-semibold">ESLint / Prettier / TypeScript</span> 규칙을 중앙에서
+          관리하여, 반복 설정을 줄이고 코드 일관성을 확보하고자 합니다.
+        </p>
+      </div>
+      <div className="pt-6">
+        <div>
+          <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">2. 구조 및 역할</h4>
+          <div className="mt-3 text-lg font-semibold">디렉토리 구조</div>
+          <div className="font-mono text-sm">
+            <div>packages/</div>
+            <div className="pl-4">config/</div>
+            <div className="pl-8">eslint-config/</div>
+            <div className="pl-12">package.json</div>
+            <div className="pl-12">index.js</div>
+            <div className="pl-12">...</div>
+            <div className="pl-8">prettier-config/</div>
+            <div className="pl-12">package.json</div>
+            <div className="pl-12">index.js</div>
+            <div className="pl-8">typescript-config/</div>
+            <div className="pl-12">package.json</div>
+            <div className="pl-12">base.json</div>
+            <div className="pl-12">react.json</div>
+            <div className="pl-12">lib.json</div>
+            <div className="pl-12">...</div>
+          </div>
+          <div className="mt-3 text-lg font-semibold">eslint-config/</div>
+          <ul className="ml-6 list-disc">
+            <li>
+              <span className="font-bold">package.json:</span> 패키지 이름(예: @ci-repo/eslint-config)과 배포/참조
+              정보를 정의
+            </li>
+            <li>
+              <span className="font-bold">index.js:</span> 공유 ESLint 설정의 엔트리 포인트. 플러그인/확장 규칙 집계를
+              이 파일에서 수행하며, 소비 패키지는 extends로 이 엔트리를 사용
+            </li>
+            <li>
+              <span className="font-bold">역할:</span> 모노레포 전역 ESLint 규칙의 단일 출처(SSoT)
+            </li>
+          </ul>
+          <div className="mt-3 text-lg font-semibold">prettier-config/</div>
+          <ul className="ml-6 list-disc">
+            <li>
+              <span className="font-bold">package.json:</span> 패키지 이름(예: @ci-repo/prettier-config) 정의
+            </li>
+            <li>
+              <span className="font-bold">index.js:</span> Prettier 규칙의 단일 진입점. 소비 패키지는 package.json의
+              prettier 필드로 참조
+            </li>
+            <li>
+              <span className="font-bold">역할:</span> 포맷 규칙을 중앙에서 통일하여, 에디터/CI/PR에서 일관된 결과 보장
+            </li>
+          </ul>
+          <div className="mt-3 text-lg font-semibold">typescript-config/</div>
+          <ul className="ml-6 list-disc">
+            <li>
+              <span className="font-bold">package.json:</span> 패키지 이름(예: @ci-repo/typescript-config) 정의
+            </li>
+            <li>
+              <span className="font-bold">base.json:</span> 공통 TS 옵션의 최소 집합. 런타임/프레임워크에 구애받지 않는
+              기본 규칙
+            </li>
+            <li>
+              <span className="font-bold">react.json:</span> React/Next.js 프로젝트용 확장 설정. base.json을 extends로
+              상속받아, JSX/경로 별칭 등을 추가
+            </li>
+            <li>
+              <span className="font-bold">lib.json:</span> 라이브러리 패키지용 경량 설정. 선언/배포 정책에 맞춰 최소
+              옵션으로 구성
+            </li>
+            <li>
+              <span className="font-bold">역할:</span> TS 옵션의 계층형 상속 체계 제공 → 앱/라이브러리가 각자 필요
+              최소만 덮어쓰기
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="pt-6">
+        <div>
+          <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">3. 다른 패키지에서의 사용</h4>
+          <div className="mt-3 text-lg font-semibold">ESLint 적용</div>
+          <ul className="ml-6 list-disc">
+            <li>
+              <span className="font-bold">소비 패키지의 package.json:</span>
+            </li>
+            <li>
+              <span className="font-bold">스크립트 예시:</span> {'"lint": "eslint . --ext .ts,.tsx"'}
+            </li>
+            <li>
+              <span className="font-bold">의도:</span> eslintConfig.extends에 @ci-repo/eslint-config를 추가
+            </li>
+          </ul>
+          <div className="mt-3 text-lg font-semibold">Prettier 적용</div>
+          <ul className="ml-6 list-disc">
+            <li>
+              <span className="font-bold">소비 패키지의 package.json:</span>{' '}
+              {'"prettier": "@ci-repo/prettier-config" 지정'}
+            </li>
+            <li>
+              <span className="font-bold">스크립트 예시:</span> {'"format": "prettier --write ."'}
+            </li>
+            <li>
+              <span className="font-bold">의도:</span> 코드 스타일 충돌을 제거하고, 에디터/CI에서 동일 결과 보장
+            </li>
+          </ul>
+          <div className="mt-3 text-lg font-semibold">TypeScript 적용</div>
+          <ul className="ml-6 list-disc">
+            <li>
+              <span className="font-bold">앱(React/Next.js):</span> tsconfig.json의 extends에
+              @ci-repo/typescript-config/react.json
+            </li>
+            <li>
+              <span className="font-bold">스크립트 예시:</span> tsconfig.json의 extends에
+              @ci-repo/typescript-config/lib.json
+            </li>
+            <li>
+              <span className="font-bold">의도:</span> 공통 규칙을 상속하되, 각 프로젝트 고유 설정은 최소 범위로만
+              덮어씀
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="pt-6">
+        <div>
+          <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">4. 체크리스트</h4>
+          <ul className="ml-6 list-disc">
+            <li>
+              <span className="font-bold">패키지명 일치:</span> 소비 측 extends, prettier, extends(tsconfig)에 적는
+              패키지명이 실제 packages/config/*/package.json의 name과 일치해야 함
+            </li>
+            <li>
+              <span className="font-bold">경로/별칭 정합성:</span> TS baseUrl/paths는 각 소비 패키지의 소스 레이아웃에
+              맞게 최소만 조정
+            </li>
+            <li>
+              <span className="font-bold">에디터 설정:</span> VSCode 등에서 Prettier를 기본 포맷터로 지정해야 포맷
+              일관성 보장
+            </li>
+            <li>
+              <span className="font-bold">스크립트 표준화:</span> 모든 패키지에서 lint, typecheck, format 스크립트명을
+              통일 (터보 파이프라인 일관성 확보)
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  )
+}

@@ -1,5 +1,5 @@
 import type { ComponentProps, ReactNode } from 'react'
-import { ButtonUI } from '../../shadcn/components/ui/button'
+import { Button as ButtonUI } from '../../shadcn/components/ui/button'
 
 type ButtonVariants = 'link' | 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | null | undefined
 type ButtonSizes = 'default' | 'sm' | 'lg' | 'icon' | null | undefined

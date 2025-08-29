@@ -1,5 +1,5 @@
 'use client'
-import { Button } from '@ci-repo/coreui'
+import { Button } from '@ci-repo/core-ui'
 
 export default function CustomButton() {
   const btnClickHandler = () => {

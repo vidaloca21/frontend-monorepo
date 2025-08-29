@@ -1,4 +1,4 @@
-import { createEncryptedStore } from '@ci-repo/corelib/store'
+import { createEncryptedStore } from '@ci-repo/core-lib/store'
 
 type User = { name: { firstName: string; lastName: string } }
 

@@ -1,4 +1,4 @@
-import { createEncryptedStore } from '@ci-repo/corelib/store'
+import { createEncryptedStore } from '@ci-repo/core-lib/store'
 
 type BearState = {
   bears: number

@@ -1,4 +1,4 @@
-import { HttpClient } from '@ci-repo/corelib/http'
+import { HttpClient } from '@ci-repo/core-lib/http'
 
 export const httpClient = new HttpClient({
   errorHandler: (error) => {

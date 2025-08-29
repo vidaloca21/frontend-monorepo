@@ -1,8 +1,8 @@
 'use client'
 import { useGetTicker } from '@/entities'
 import { Dialog } from '@/features/custom-ui'
-import { overlay } from '@ci-repo/corelib/utils'
-import { Button } from '@ci-repo/coreui'
+import { overlay } from '@ci-repo/core-lib/utils'
+import { Button } from '@ci-repo/core-ui'
 
 import { useEffect, useState } from 'react'
 
@@ -35,7 +35,7 @@ type TickerBody = {
   timestamp: number
 }
 
-export function TestView() {
+export function ApiView() {
   const [ticker, setTicker] = useState<TickerBody>()
   const { data } = useGetTicker('KRW-BTC')
   useEffect(() => {
