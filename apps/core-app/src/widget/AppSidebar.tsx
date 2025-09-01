@@ -29,7 +29,7 @@ export function AppSidebar() {
         url: '#',
         items: [
           {
-            title: 'apps/coreapp',
+            title: 'apps/core-app',
             url: '/app',
           },
         ],

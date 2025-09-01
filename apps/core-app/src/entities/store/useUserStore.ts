@@ -10,10 +10,9 @@ type UserActions = {
 }
 type UserStore = UserState & UserActions
 
-export const useUserStore = createStore<UserStore>((set, get) => ({
+export const useUserStore = createStore<UserStore>((set) => ({
   user: { name: { firstName: 'Lionel', lastName: 'Messi' } },
   actions: {
-    getName: () => get().user.name,
     setFirstName: (name) =>
       set((s) => {
         s.user.name.firstName = name

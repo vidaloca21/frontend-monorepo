@@ -1,4 +1,6 @@
 'use client'
+import { Card, CardContent } from '@ci-repo/core-ui'
+
 import { useGetTicker } from '@/entities'
 import { Dialog } from '@/features/custom-ui'
 import { overlay } from '@ci-repo/core-lib/utils'
@@ -80,6 +82,17 @@ export function ApiView() {
         <p>{ticker && ticker.high_price}</p>
         <p>{ticker && ticker.opening_price}</p>
         <p>{ticker && ticker.trade_date}</p>
+      </div>
+
+      <div className="pt-6">
+        <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">1. 일반 상태</h4>
+        <p>목적:</p>
+        <p>라이브러리: Zustand</p>
+        <p>middleware: immer, devtools 적용</p>
+        <p>사용 예시:</p>
+        <Card>
+          <CardContent></CardContent>
+        </Card>
       </div>
     </div>
   )
